@@ -1,0 +1,11 @@
+.env
+.env.*
+*.key
+*.pem
+*.crt
+secrets/
+vault-data/
+__pycache__/
+.pytest_cache/
+*.pyc
+
