@@ -45,10 +45,13 @@ pipeline {
             steps {
 
                 sh '''
+                docker save ${IMAGE_NAME}:${BUILD_NUMBER} -o app-image.tar
+
                 trivy image \
+                --input app-image.tar \
                 --exit-code 1 \
                 --severity CRITICAL \
-                ${IMAGE_NAME}:${BUILD_NUMBER}
+                --scanners vuln
                 '''
             }
         }
